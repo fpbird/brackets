@@ -110,6 +110,14 @@ define(function (require, exports, module) {
             });
         });
 
+        // Listen for changes to the Codemirror
+        BrambleEvents.on("bramble:CodeMirrorChange", function(e, delta) {
+            sendEvent({
+                type: "bramble:CodeMirrorChange",
+                delta: delta
+            });
+        });
+
         // Listen for changes to the font size
         ViewCommandHandlers.on("fontSizeChange", function(e, fontSize) {
             sendEvent({

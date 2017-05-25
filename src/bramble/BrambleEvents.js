@@ -31,6 +31,11 @@ define(function (require, exports, module) {
         triggerUpdateLayoutEvent("End");
     };
 
+    // bramble:updateLayoutEnd event when layout finishes changing
+    exports.triggerUpdateCodeMirror = function(diff) {        
+        console.log("trigger update code mirror " +diff);
+    };
+
     // bramble:previewModeChange event when we switch from desktop to mobile mode.
     // `mode` should be "desktop" or "mobile"
     exports.triggerPreviewModeChange = function(mode) {
@@ -66,5 +71,11 @@ define(function (require, exports, module) {
     // enabling/disabling the inspector
     exports.triggerInspectorChange = function(enabled) {
         exports.trigger("bramble:inspectorChange", enabled);
+    };
+
+    // enabling/disabling the inspector
+    exports.triggerCodeMirrorChange = function(enabled) {
+        exports.trigger("bramble:CodeMirrorChange", enabled);
+        console.log("triggerCodeMirrorChange"+enabled);
     };
 });

@@ -305,6 +305,9 @@ define([
                         _state.allowJavaScript = data.allowJavaScript;
                     } else if (eventName === "tutorialVisibilityChange") {
                         _tutorialVisible = data.visible;
+                    } else if (eventName === "CodeMirrorChange") {
+                        self.trigger("CodeMirrorChange", data.delta);
+                        console.log("event ->"+data.delta);
                     } else if (eventName === "autoUpdateChange") {
                         _state.autoUpdate = data.autoUpdate;
                     }
